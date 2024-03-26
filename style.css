@@ -49,7 +49,7 @@
 
 .block__item::before {
   background: radial-gradient(
-    500px circle at var(--mouse-x) var(--mouse-y),
+    600px circle at var(--mouse-x) var(--mouse-y),
     var(--CardsBorderColor),
     transparent 40%
   );
@@ -58,7 +58,7 @@
 
 .block__item::after {
   background: radial-gradient(
-    20px circle at var(--mouse-x) var(--mouse-y),
+    400px circle at var(--mouse-x) var(--mouse-y),
     var(--CardsBorderColor),
     transparent 40%
   );
