@@ -1,3 +1,65 @@
+:root {
+  --CardsBorderColor: #671dde, #ab5fff, #9636ff;
+  --CardsBorderOpacity: 0.8;
+  --CardsOpacity: 1;
+  --CardsBorderRadius: 10px;
+}
+
 * {
-  background-color: #fff;
+  font-family: sans-serif;
+}
+.blocks__wrap {
+  display: flex;
+  gap: 20px;
+  margin-top: 200px;
+}
+.block__item {
+  padding: 15px;
+  background-color: bisque;
+  position: relative;
+}
+.block__title {
+  font-size: 25px;
+}
+.block__text {
+  font-size: 18px;
+}
+
+.block__item:before,
+.block__item:after {
+  content: "";
+  height: 100%;
+  left: 0px;
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  transition: opacity 500ms;
+  width: 100%;
+  z-index: 11;
+}
+.block__item:after {
+  background: radial-gradient(
+    20px circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 255, 255, 0.4),
+    transparent 40%
+  );
+  border-radius: var(--CardsBorderRadius);
+  zoom: 1 !important;
+  z-index: 1;
+}
+.block__item:before {
+  background: radial-gradient(
+    550px circle at var(--mouse-x) var(--mouse-y),
+    var(--CardsBorderColor),
+    transparent 50%
+  );
+  z-index: 2;
+  padding: 2px;
+  left: -2px;
+  width: 100%;
+  top: -2px;
+  height: 100%;
+  zoom: 1 !important;
+  opacity: var(--CardsBorderOpacity);
+  border-radius: var(--CardsBorderRadius);
 }
