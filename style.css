@@ -14,9 +14,10 @@
   margin-top: 200px;
 }
 .block__item {
-  padding: 15px;
+  padding: 2px;
   background-color: bisque;
   position: relative;
+  display: flex;
 }
 .block__title {
   font-size: 25px;
@@ -25,41 +26,46 @@
   font-size: 18px;
 }
 
-.block__item:before,
-.block__item:after {
+.blocks__wrap:hover > .block__item::after {
+  opacity: 1;
+}
+
+.block__item:hover::before {
+  opacity: 1;
+}
+
+.block__item::before,
+.block__item::after {
+  border-radius: inherit;
   content: "";
   height: 100%;
   left: 0px;
-  opacity: 1;
+  opacity: 0;
   position: absolute;
   top: 0px;
   transition: opacity 500ms;
   width: 100%;
-  z-index: 11;
 }
-.block__item:after {
+
+.block__item::before {
   background: radial-gradient(
-    20px circle at var(--mouse-x) var(--mouse-y),
-    rgba(255, 255, 255, 0.4),
+    500px circle at var(--mouse-x) var(--mouse-y),
+    var(--CardsBorderColor),
     transparent 40%
   );
-  border-radius: var(--CardsBorderRadius);
-  zoom: 1 !important;
+  z-index: 3;
+}
+
+.block__item::after {
+  background: radial-gradient(
+    20px circle at var(--mouse-x) var(--mouse-y),
+    var(--CardsBorderColor),
+    transparent 40%
+  );
   z-index: 1;
 }
-.block__item:before {
-  background: radial-gradient(
-    550px circle at var(--mouse-x) var(--mouse-y),
-    var(--CardsBorderColor),
-    transparent 50%
-  );
-  z-index: 2;
-  padding: 2px;
-  left: -2px;
-  width: 100%;
-  top: -2px;
-  height: 100%;
-  zoom: 1 !important;
-  opacity: var(--CardsBorderOpacity);
-  border-radius: var(--CardsBorderRadius);
+.content {
+  position: relative;
+  z-index: 5;
+  background-color: bisque;
 }
